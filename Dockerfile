@@ -1,4 +1,4 @@
-FROM	ubuntu:14.04
+FROM	ubuntu
 MAINTAINER Juan Moreno <moreno.juan23@gmail.com>
 
 RUN	apt-get update
