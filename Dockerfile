@@ -1,4 +1,4 @@
-FROM	ubuntu:14.04
+FROM	ubuntu
 MAINTAINER Juan Moreno <moreno.juan23@gmail.com>
 
 RUN	apt-get update
@@ -12,10 +12,11 @@ RUN	dpkg-divert --local --rename --add /sbin/initctl
 RUN	ln -sf /bin/true /sbin/initctl
 
 RUN	sysctl -w kernel.shmall=4194304 && sysctl -w kernel.shmmax=17179869184 && \
-	/opt/chef-server/embedded/bin/runsvdir-start & \
+	/opt/opscode/embedded/bin/runsvdir-start & \
 	chef-server-ctl reconfigure && \
 	chef-server-ctl stop
 	
 ADD	. /usr/local/bin/
+CMD	["run.sh"]
 
 EXPOSE	443
