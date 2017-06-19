@@ -12,6 +12,5 @@ RUN	dpkg-divert --local --rename --add /sbin/initctl
 RUN	ln -sf /bin/true /sbin/initctl
 
 ADD	. /usr/local/bin/
-CMD	["run_chef_server"]
 
 EXPOSE	443
